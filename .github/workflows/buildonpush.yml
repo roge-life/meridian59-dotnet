@@ -34,8 +34,27 @@ jobs:
         run: msbuild Meridian59.sln /p:Configuration=Release
       - name: Build something
         run: msbuild Meridian59.sln /p:Configuration=Release /p:Platform=x64
-      - name: Upload resources artifact
+      - name: Upload client artifact
         uses: actions/upload-artifact@v3
         with:
-          name: meridian_resources
-          path: "./Resources"
+          name: meridian_ogre_client
+          path: |
+            Meridian59.Ogre.Client/bin/*
+            Meridian59.Patcher/bin/*
+      - name: Upload bot artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: meridian_ogre_bot_client
+          path: |
+            Meridian59.Bot.Shop/bin/*
+            Meridian59.Bot.Spell/bin/*
+            Meridian59.Bot.IRC/bin/*
+      - name: Upload editor artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: meridian_asset_tools
+          path: |
+            Meridian59.Rooviewer/bin/*
+            Meridian59.BgfEditor/bin/*
+            Meridian59.RsbEditor/bin/*
+            
