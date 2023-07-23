@@ -17,6 +17,8 @@ jobs:
         run: msbuild Engine\src\Engine.sln /p:Configuration=Release /p:Platform=Win32
       - name: Build something
         run: msbuild Meridian59.sln /p:Configuration=Release
+      - name: Build something
+        run: msbuild Meridian59.sln /p:Configuration=Release /p:Platform=x64
       - name: Upload resources artifact
         uses: actions/upload-artifact@v3
         with:
