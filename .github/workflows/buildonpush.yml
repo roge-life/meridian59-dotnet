@@ -11,7 +11,9 @@ jobs:
       - uses: ilammy/msvc-dev-cmd@v1
         with:
             arch: x86
-      - name: Build Deps
+      - name: Build Deps x64
+        run: msbuild Engine\src\Engine.sln /p:Configuration=Release /p:Platform=x64
+      - name: Build Deps win32
         run: msbuild Engine\src\Engine.sln /p:Configuration=Release /p:Platform=Win32
       - name: Build something
         run: msbuild Meridian59.sln /p:Configuration=Release
