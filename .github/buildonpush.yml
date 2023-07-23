@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is running a build.
 on: [push]
 jobs:
   build:
-    runs-on: windows-2022
+    runs-on: [self-hosted, Windows]
     steps:
       - uses: actions/checkout@v3
       - uses: ilammy/msvc-dev-cmd@v1
