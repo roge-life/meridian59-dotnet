@@ -1,8 +1,23 @@
-name: Test Build on Push
+name: Self-hosted test on Push
 run-name: ${{ github.actor }} is running a build.
 on: [push]
 jobs:
+  pre_job:
+    # continue-on-error: true # Uncomment once integration is finished
+    runs-on: ubuntu-latest
+    # Map a step output to a job output
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+    steps:
+      - id: skip_check
+        uses: fkirc/skip-duplicate-actions@v5
+        with:
+          # All of these options are optional, so you can remove them if you are happy with the defaults
+          concurrent_skipping: 'outdated_runs'
+          skip_after_successful_duplicate: 'true'
   build:
+    needs: pre_job
+    if: needs.pre_job.outputs.should_skip != 'true'
     runs-on: [self-hosted, Windows]
     steps:
       - uses: actions/checkout@v3
