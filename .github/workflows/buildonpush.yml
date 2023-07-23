@@ -31,7 +31,7 @@ jobs:
       - name: Build Deps win32
         run: msbuild Engine\src\Engine.sln /p:Configuration=Release /p:Platform=Win32
       - name: Build something
-        run: msbuild Meridian59.sln /p:Configuration=Release
+        run: msbuild Meridian59.sln /p:Configuration=Release /p:Platform=Win32
       - name: Build something
         run: msbuild Meridian59.sln /p:Configuration=Release /p:Platform=x64
       - name: Upload client artifact
