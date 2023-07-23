@@ -12,7 +12,7 @@ jobs:
         with:
             arch: x86
       - name: Build Deps
-        run: msbuild Engine\src\Engine.sln /p:Configuration=Release;Platform="Win32"
+        run: msbuild Engine\src\Engine.sln /p:Configuration=Release;Platform=x64
       - name: Build something
         run: msbuild Meridian59.sln /p:Configuration=Release
       - name: Upload resources artifact
