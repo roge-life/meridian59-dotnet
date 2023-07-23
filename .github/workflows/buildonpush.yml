@@ -11,6 +11,8 @@ jobs:
       - uses: ilammy/msvc-dev-cmd@v1
         with:
             arch: x86
+      - name: Build Deps
+        run: msbuild Engine\src\Engine.sln /p:Configuration=Release
       - name: Build something
         run: msbuild Meridian59.sln /p:Configuration=Release
       - name: Upload resources artifact
