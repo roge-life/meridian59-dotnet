@@ -1,2 +1,2 @@
-https://update.meridian59.de/NETClient/clientpatch
-https://update.meridian59.de/NETClient/patchinfo.txt
+https://patches.nodewars.net/release_client/clientpatch/
+https://patches.nodewars.net/release_client/patchinfo.txt
