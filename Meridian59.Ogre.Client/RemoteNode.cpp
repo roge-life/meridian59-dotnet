@@ -235,7 +235,14 @@ namespace Meridian59 { namespace Ogre
    {
       ::Ogre::String& ostr_billboard = 
          PREFIX_NAMETEXT_BILLBOARD + ::Ogre::StringConverter::toString(roomObject->ID);
-
+      
+      if (sceneManager->hasBillboardSet(ostr_billboard))
+      {
+	 billboardSetName=sceneManager->getBillboardSet(ostr_billboard);
+         billboardSetName->clear();
+         billboardSetName->detachFromParent();
+         SceneManager->destroyBillboardSet(billboardSetName);
+      }
       // create BillboardSet for name
       billboardSetName = sceneManager->createBillboardSet(ostr_billboard, 1);
       billboardSetName->setBillboardOrigin(BillboardOrigin::BBO_BOTTOM_CENTER);
