@@ -148,14 +148,15 @@ namespace Meridian59 { namespace Ogre
       }
        else
       {
-      cameraNodeOrbit = cameraNode->createChildSceneNode(AVATARCAMNODEORBIT);
-      }
+      cameraNodeOrbit = cameraNode->createChildSceneNode(AVATARCAMNODEORBIT)
       cameraNodeOrbit->setPosition(::Ogre::Vector3(0, 0, 0));
       cameraNodeOrbit->setFixedYawAxis(true);
       cameraNodeOrbit->setInitialState();
 
       // attach camera
       cameraNodeOrbit->attachObject(camera);
+      }
+
 
       /********************************************************************************************************/
       /*                                       INVIS EFFECT RTT                                               */
