@@ -7,7 +7,13 @@ namespace Meridian59 { namespace Ogre
    {
       ::Ogre::String& ostr_name = 
          PREFIX_REMOTENODE2D_BILLBOARD + ::Ogre::StringConverter::toString(roomObject->ID);
-
+      if (sceneManager->hasBillboardSet(ostr_name))
+      {
+	      billboardSetName=sceneManager->getBillboardSet(ostr_name);
+         billboardSetName->clear();
+         billboardSetName->detachFromParent();
+         SceneManager->destroyBillboardSet(billboardSetName);
+      }
       // create billboardset for 1 billboard
       billboardSet = SceneManager->createBillboardSet(ostr_name, 1);
       billboardSet->setBillboardType(BillboardType::BBT_ORIENTED_SELF);
