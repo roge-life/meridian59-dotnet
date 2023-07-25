@@ -28,13 +28,13 @@ jobs:
             vsversion: 2017
             arch: x86
       - name: Build Deps x64
-        run: msbuild Engine\src\Engine.sln /p:Configuration=Release /p:Platform=x64
+        run: msbuild Engine\src\Engine.sln /p:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v141
       - name: Build Deps win32
-        run: msbuild Engine\src\Engine.sln /p:Configuration=Release /p:Platform=Win32
+        run: msbuild Engine\src\Engine.sln /p:Configuration=Release /p:Platform=Win32 /p:PlatformToolset=v141
       - name: Build something
-        run: msbuild Meridian59.sln /p:Configuration=Release /p:Platform=x86
+        run: msbuild Meridian59.sln /p:Configuration=Release /p:Platform=x86 /p:PlatformToolset=v141
       - name: Build something
-        run: msbuild Meridian59.sln /p:Configuration=Release /p:Platform=x64
+        run: msbuild Meridian59.sln /p:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v141
       - name: Upload client artifact
         uses: actions/upload-artifact@v3
         with:
