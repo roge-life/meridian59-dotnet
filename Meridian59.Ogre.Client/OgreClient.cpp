@@ -142,7 +142,14 @@ namespace Meridian59 { namespace Ogre
       cameraNode->setInitialState();
 
       // create camera node in orbit (this is where the actual camera is, with z offset)
+      if (cameraNode->hasSceneNode(AVATARCAMNODEORBIT))
+      {
+	    cameraNodeOrbit = cameraNode->getSceneNode(AVATARCAMNODEORBIT);   
+      }
+       else
+      {
       cameraNodeOrbit = cameraNode->createChildSceneNode(AVATARCAMNODEORBIT);
+      }
       cameraNodeOrbit->setPosition(::Ogre::Vector3(0, 0, 0));
       cameraNodeOrbit->setFixedYawAxis(true);
       cameraNodeOrbit->setInitialState();
