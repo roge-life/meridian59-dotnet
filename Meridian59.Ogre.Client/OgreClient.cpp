@@ -154,7 +154,8 @@ namespace Meridian59 { namespace Ogre
       cameraNodeOrbit->setInitialState();
 
       // attach camera
-      cameraNodeOrbit->attachObject(camera);
+      if (!camera->isAttached())
+        cameraNodeOrbit->attachObject(camera);
       }
 
 

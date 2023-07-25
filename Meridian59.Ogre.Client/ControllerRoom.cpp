@@ -57,8 +57,10 @@ namespace Meridian59 { namespace Ogre
       // create room scenenode
       roomNode = SceneManager->getRootSceneNode()->createChildSceneNode(NAME_ROOMNODE);
       roomNode->setPosition(::Ogre::Vector3(64.0f, 0, 64.0f));
-      roomNode->attachObject(roomManObj);
-      roomNode->attachObject(roomDecoration);
+      if (!roomManObj->isAttached()) 
+        roomNode->attachObject(roomManObj);
+      if (!roomDecoration->isAttached()) 
+        roomNode->attachObject(roomDecoration);
       roomNode->setInitialState();
 
       // create rootnode for weather effects

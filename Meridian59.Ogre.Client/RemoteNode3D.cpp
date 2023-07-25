@@ -170,7 +170,8 @@ namespace Meridian59 { namespace Ogre
       Entity->setCastShadows(info->CastShadows);
 
       // attach entity
-      SceneNode->attachObject(Entity);
+      if (!Entity->isAttached())
+        SceneNode->attachObject(Entity);
 
       SceneNode->setOrientation(*info->Orientation);
       SceneNode->scale(*info->Scale);
@@ -219,7 +220,8 @@ namespace Meridian59 { namespace Ogre
          particleSystem->setBoundsAutoUpdated(false);
 
          // attach particlesystem to parent scenenode
-         SceneNode->attachObject(particleSystem);
+         if (!particleSystem->isAttached())
+           SceneNode->attachObject(particleSystem);
 
          // save reference to this particle system
          info->ParticleSystem = particleSystem;

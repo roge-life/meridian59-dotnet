@@ -42,7 +42,8 @@ namespace Meridian59 { namespace Ogre
       billboard->mDirection = ::Ogre::Vector3::UNIT_Y;
 
       // attach to scenenode
-      SceneNode->attachObject(billboardSet);
+      if (!billboardSet->isAttached())
+        SceneNode->attachObject(billboardSet);
 
       // possibly create attached light
       CreateLight();

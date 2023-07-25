@@ -215,7 +215,8 @@ namespace Meridian59 { namespace Ogre
       {
          // maximum distance we render this light or skip it
          Light->setRenderingDistance(MAXLIGHTRENDERDISTANCE);
-         SceneNode->attachObject(Light);
+         if (!Light->isAttached())
+           SceneNode->attachObject(Light);
       }
    };
 
@@ -265,7 +266,8 @@ namespace Meridian59 { namespace Ogre
       billboardName->setColour(ColourValue::ZERO);
       }
       // attach name billboardset to object
-      SceneNode->attachObject(billboardSetName);
+      if (!billboardSetName->isAttached())
+        SceneNode->attachObject(billboardSetName);
    };
 
    void RemoteNode::UpdateName()
@@ -365,7 +367,8 @@ namespace Meridian59 { namespace Ogre
       billboardQuestMarker = billboardSetQuestMarker->createBillboard(::Ogre::Vector3::ZERO);
       billboardQuestMarker->setColour(ColourValue::ZERO);
       // attach quest marker billboardset to object
-      SceneNode->attachObject(billboardSetQuestMarker);
+      if (!billboardSetQuestMarker->isAttached())
+        SceneNode->attachObject(billboardSetQuestMarker);
       }
 
    };

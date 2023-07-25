@@ -45,7 +45,8 @@ namespace Meridian59 { namespace Ogre
       }
       // create scenenode
       SceneNode = sceneManager->getRootSceneNode()->createChildSceneNode(ostr_node);
-      SceneNode->attachObject(billboardSet);
+      if (!billboardSet->isAttached())
+        SceneNode->attachObject(billboardSet);
 #if DEBUG
       SceneNode->showBoundingBox(true);
 #endif
@@ -147,7 +148,8 @@ namespace Meridian59 { namespace Ogre
       {
          // maximum distance we render this light or skip it
          Light->setRenderingDistance(RemoteNode::MAXLIGHTRENDERDISTANCE);
-         SceneNode->attachObject(Light);
+         if (!Light->isAttached())
+           SceneNode->attachObject(Light);
          Light->setPosition(::Ogre::Vector3(0, 100, 0));
       }
    };
