@@ -128,7 +128,7 @@ namespace Meridian59 { namespace Ogre
       camera->setPosition(::Ogre::Vector3(0, 0, 0));
       camera->setNearClipDistance(1.0f);
       camera->setUseRenderingDistance(false);
-      if(sceneManager->hasSceneNode(AVATARCAMNODE)
+      if(sceneManager->hasSceneNode(AVATARCAMNODE))
       {
 	      cameraNode = sceneManager->getSceneNode(AVATARCAMNODE);
       }
