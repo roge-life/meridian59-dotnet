@@ -22,7 +22,7 @@ namespace Meridian59 { namespace Ogre
        if  ((sceneManager->hasSceneNode(ostr_scenenodename)))
        {
        Logger::Log(MODULENAME, LogType::Info, "createremotescenenode DUPLICATE? " + roomObject->ID.ToString());
-       SceneNode = SceneManager->destroySceneNode(ostr_scenenodename);
+       SceneManager->destroySceneNode(ostr_scenenodename);
        SceneNode = SceneManager->getRootSceneNode()->createChildSceneNode(ostr_scenenodename);
        }
 
