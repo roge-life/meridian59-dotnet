@@ -1,0 +1,60 @@
+name: Self-hosted test on Push
+run-name: ${{ github.actor }} is running a build.
+on: [push]
+jobs:
+  pre_job:
+    # continue-on-error: true # Uncomment once integration is finished
+    runs-on: ubuntu-latest
+    # Map a step output to a job output
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+    steps:
+      - id: skip_check
+        uses: fkirc/skip-duplicate-actions@v5
+        with:
+          # All of these options are optional, so you can remove them if you are happy with the defaults
+          concurrent_skipping: 'outdated_runs'
+          skip_after_successful_duplicate: 'true'
+  build:
+    needs: pre_job
+    if: needs.pre_job.outputs.should_skip != 'true'
+    runs-on: [self-hosted, Windows]
+    steps:
+      - uses: actions/checkout@v3
+        with:
+             submodules: true
+      - uses: microsoft/setup-msbuild@v1.1
+        with:
+            vs-version: '17.0'
+      - name: Build Deps x64
+        run: msbuild Engine\src\Engine.sln /p:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v141
+      - name: Build Deps win32
+        run: msbuild Engine\src\Engine.sln /p:Configuration=Release /p:Platform=Win32 /p:PlatformToolset=v141
+      - name: Build something
+        run: msbuild Meridian59.sln /p:Configuration=Release /p:Platform=x86 /p:PlatformToolset=v141
+      - name: Build something
+        run: msbuild Meridian59.sln /p:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v141
+      - name: Upload client artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: meridian_ogre_client
+          path: |
+            Meridian59.Ogre.Client/bin/*
+            Meridian59.Patcher/bin/*
+      - name: Upload bot artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: meridian_ogre_bot_client
+          path: |
+            Meridian59.Bot.Shop/bin/*
+            Meridian59.Bot.Spell/bin/*
+            Meridian59.Bot.IRC/bin/*
+      - name: Upload editor artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: meridian_asset_tools
+          path: |
+            Meridian59.Rooviewer/bin/*
+            Meridian59.BgfEditor/bin/*
+            Meridian59.RsbEditor/bin/*
+            
