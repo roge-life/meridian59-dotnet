@@ -17,11 +17,16 @@ namespace Meridian59 { namespace Ogre
       // create scenenode
       const ::Ogre::String& ostr_scenenodename = 
          PREFIX_REMOTENODE_SCENENODE + ::Ogre::StringConverter::toString(roomObject->ID);
-      Logger::Log(MODULENAME, LogType::Info, "createremotescenenode" + roomObject->ID.ToString());
+     
       try {
-      if  ((SceneManager->getRootSceneNode()->SceneManager->hasSceneNode(ostr_scenenodename)))
+      if  ((SceneManager->hasSceneNode(ostr_scenenodename)))
        {
-      		SceneManager->getRootSceneNode()->createChildSceneNode(ostr_scenenodename);
+          	Logger::Log(MODULENAME, LogType::Info, "createremotescenenode DUPLICATE? " + roomObject->ID.ToString());	
+       }
+      else
+       {
+       Logger::Log(MODULENAME, LogType::Info, "createremotescenenode:" + roomObject->ID.ToString());
+       SceneManager->getRootSceneNode()->createChildSceneNode(ostr_scenenodename);
        }
       }
       catch(...) {
