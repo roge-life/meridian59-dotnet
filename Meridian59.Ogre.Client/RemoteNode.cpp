@@ -14,19 +14,21 @@ namespace Meridian59 { namespace Ogre
       // create sound holder list
       sounds = new std::list<ISound*>();
 
+
       // create scenenode
       const ::Ogre::String& ostr_scenenodename = 
          PREFIX_REMOTENODE_SCENENODE + ::Ogre::StringConverter::toString(roomObject->ID);
-
+	   
        if  ((sceneManager->hasSceneNode(ostr_scenenodename)))
        {
        Logger::Log(MODULENAME, LogType::Info, "createremotescenenode DUPLICATE? " + roomObject->ID.ToString());	
        }
 
-
+       else
+       {
        Logger::Log(MODULENAME, LogType::Info, "createremotescenenode:" + roomObject->ID.ToString());
-       SceneManager->getRootSceneNode()->createChildSceneNode(ostr_scenenodename);
-
+       SceneNode = SceneManager->getRootSceneNode()->createChildSceneNode(ostr_scenenodename);
+       }
 
 	      
       SceneNode->setFixedYawAxis(true);
