@@ -19,7 +19,7 @@ namespace Meridian59 { namespace Ogre
          PREFIX_REMOTENODE_SCENENODE + ::Ogre::StringConverter::toString(roomObject->ID);
       Logger::Log(MODULENAME, LogType::Info, "createremotescenenode" + roomObject->ID.ToString());
       try {
-      if  (!(SceneManager->getRootSceneNode()->hasSceneNode(ostr_scenenodename)))
+      if  (!(SceneManager->hasSceneNode(ostr_scenenodename)))
        {
       		SceneManager->getRootSceneNode()->createChildSceneNode(ostr_scenenodename);
        }
