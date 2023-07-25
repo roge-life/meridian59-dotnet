@@ -21,6 +21,7 @@ namespace Meridian59 { namespace Ogre
 	   
        if  ((sceneManager->hasSceneNode(ostr_scenenodename)))
        {
+       SceneNode = SceneManager->getRootSceneNode(otr_scenenodename);
        Logger::Log(MODULENAME, LogType::Info, "createremotescenenode DUPLICATE? " + roomObject->ID.ToString());	
        }
 
@@ -28,10 +29,12 @@ namespace Meridian59 { namespace Ogre
        {
        Logger::Log(MODULENAME, LogType::Info, "createremotescenenode:" + roomObject->ID.ToString());
        SceneNode = SceneManager->getRootSceneNode()->createChildSceneNode(ostr_scenenodename);
+       
        }
 
+       SceneNode->setFixedYawAxis(true);
 	      
-      SceneNode->setFixedYawAxis(true);
+      
 
       // initial position and orientation
       RefreshPosition();
