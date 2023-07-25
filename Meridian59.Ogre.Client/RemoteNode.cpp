@@ -53,12 +53,13 @@ namespace Meridian59 { namespace Ogre
          ::Ogre::SceneNode* cameraNode = OgreClient::Singleton->CameraNode;
 
          // attach cameranode on avatarnode
-	 if (SceneManager->hasEntity(cameraNode)){
-		 Logger::Log(MODULENAME, LogType::Info, "attempting to attach duplicate cameraNode");
+	try {	 
+         Logger::Log(MODULENAME, LogType::Info, "attempting to attach cameraNode");
+		SceneNode->addChild(cameraNode);
 	 }
-	      else
+	catch (...)
 	 {
-         SceneNode->addChild(cameraNode);
+         Logger::Log(MODULENAME, LogType::Info, "duplicate cameraNode?");
          }
          SceneNode->setFixedYawAxis(true);
 	 
