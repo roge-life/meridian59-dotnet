@@ -128,9 +128,15 @@ namespace Meridian59 { namespace Ogre
       camera->setPosition(::Ogre::Vector3(0, 0, 0));
       camera->setNearClipDistance(1.0f);
       camera->setUseRenderingDistance(false);
-
+      if(sceneManager->hasSceneNode(AVATARCAMMODE)
+      {
+	      cameraNode = sceneManager->getSceneNode(AVATARCAMNODE);
+      }
+      else
+      {
       // create camera node (this is placed at the avatar roughly at eye height)
       cameraNode = sceneManager->createSceneNode(AVATARCAMNODE);
+      }   
       cameraNode->setPosition(::Ogre::Vector3(0, 0, 0));
       cameraNode->setFixedYawAxis(true);
       cameraNode->setInitialState();
