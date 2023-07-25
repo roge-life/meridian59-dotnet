@@ -357,9 +357,10 @@ namespace Meridian59 { namespace Ogre
       // create Billboard
       billboardQuestMarker = billboardSetQuestMarker->createBillboard(::Ogre::Vector3::ZERO);
       billboardQuestMarker->setColour(ColourValue::ZERO);
-      }
       // attach quest marker billboardset to object
       SceneNode->attachObject(billboardSetQuestMarker);
+      }
+
    };
 
    void RemoteNode::UpdateQuestMarker()
