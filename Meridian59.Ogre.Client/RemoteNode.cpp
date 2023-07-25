@@ -338,7 +338,13 @@ namespace Meridian59 { namespace Ogre
    void RemoteNode::CreateQuestMarker()
    {
       ::Ogre::String& ostr_billboard = PREFIX_QUESTMARKER_BILLBOARD + ::Ogre::StringConverter::toString(roomObject->ID);
-
+      if (sceneManager->hasBillboardSet(ostr_billboard))
+      {
+	 billboardSetName=sceneManager->getBillboardSet(ostr_billboard);
+         billboardSetName->clear();
+         billboardSetName->detachFromParent();
+         SceneManager->destroyBillboardSet(billboardSetName);
+      }
       // create BillboardSet for quest marker
       billboardSetQuestMarker = sceneManager->createBillboardSet(ostr_billboard, 1);
       billboardSetQuestMarker->setBillboardOrigin(BillboardOrigin::BBO_BOTTOM_CENTER);
