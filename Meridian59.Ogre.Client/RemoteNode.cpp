@@ -22,7 +22,7 @@ namespace Meridian59 { namespace Ogre
       SceneNode = SceneManager->getRootSceneNode()->createChildSceneNode(ostr_scenenodename);
       }
       catch(...) {
-	      Logger::Log(MODULENAME, LogType::Info, "caught exception in RemoteNode on scene " + roomObject->ID.ToString() + roomObject->Name.ToString());
+	      Logger::Log(MODULENAME, LogType::Info, "caught exception in RemoteNode on scene " + roomObject->ID.ToString());
       }
 	      
       SceneNode->setFixedYawAxis(true);
