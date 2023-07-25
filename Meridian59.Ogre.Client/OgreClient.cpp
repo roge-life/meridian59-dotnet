@@ -150,7 +150,7 @@ namespace Meridian59 { namespace Ogre
       {
       cameraNodeOrbit = cameraNode->createChildSceneNode(AVATARCAMNODEORBIT);
       }
-      cameraNodeOrbit->setPosition(::Osgre::Vector3(0, 0, 0));
+      cameraNodeOrbit->setPosition(::Ogre::Vector3(0, 0, 0));
       cameraNodeOrbit->setFixedYawAxis(true);
       cameraNodeOrbit->setInitialState();
 
