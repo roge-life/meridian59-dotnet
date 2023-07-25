@@ -21,7 +21,13 @@ namespace Meridian59 { namespace Ogre
       ::Ogre::String& ostr_id        = ::Ogre::StringConverter::toString(Projectile->ID);
       ::Ogre::String& ostr_billboard = PREFIX_PROJECTILE2D_BILLBOARD + ostr_id;
       ::Ogre::String& ostr_node      = PREFIX_PROJECTILE2D_SCENENODE + ostr_id;
-
+      if (sceneManager->hasBillboardSet(ostr_billboard))
+      {
+	      billboardSetName=sceneManager->getBillboardSet(ostr_billboard);
+         billboardSetName->clear();
+         billboardSetName->detachFromParent();
+         SceneManager->destroyBillboardSet(billboardSetName);
+      }
       // create billboardset for 1 billboard
       billboardSet = sceneManager->createBillboardSet(ostr_billboard, 1);
       billboardSet->setBillboardOrigin(BillboardOrigin::BBO_BOTTOM_CENTER);
