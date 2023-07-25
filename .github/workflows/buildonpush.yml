@@ -25,8 +25,7 @@ jobs:
              submodules: true
       - uses: ilammy/msvc-dev-cmd@v1
         with:
-            toolset: 15
-            arch: x86
+            toolset: 14.16.27023
       - name: Build Deps x64
         run: msbuild Engine\src\Engine.sln /p:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v141
       - name: Build Deps win32
