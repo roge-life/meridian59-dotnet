@@ -37,7 +37,7 @@ You can build binaries compatible with different branches of the game by using p
 |   105    | -                |  **Full**     | [MeridianNext](https://meridiannext.com) |
 |   112    | -                |  **Full**     | [Meridian59de](https://meridian59.de)    |
 |   103    | OPENMERIDIAN     |  Low          | [OpenMeridian](http://openmeridian.org/) |
-| 101/102  | VANILLA          |  Minimal      | [Meridian59com](http://www.meridian59.com) |
+| 101/102  | VANILLA          |  Minimal      | [Meridian59com](http://www.meridian59.com)  |
 
 # Wiki
 
