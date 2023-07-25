@@ -25,7 +25,7 @@ jobs:
              submodules: true
       - uses: ilammy/msvc-dev-cmd@v1
         with:
-            vsversion: 15.9
+            vsversion: 15.0
             arch: x86
       - name: Build Deps x64
         run: msbuild Engine\src\Engine.sln /p:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v141
