@@ -240,10 +240,9 @@ namespace Meridian59 { namespace Ogre
       if (sceneManager->hasBillboardSet(ostr_billboard))
       {
 	 billboardSetName=sceneManager->getBillboardSet(ostr_billboard);
-         billboardSetName->clear();
-         billboardSetName->detachFromParent();
-         SceneManager->destroyBillboardSet(billboardSetName);
       }
+      else
+      {
       // create BillboardSet for name
       billboardSetName = sceneManager->createBillboardSet(ostr_billboard, 1);
       billboardSetName->setBillboardOrigin(BillboardOrigin::BBO_BOTTOM_CENTER);
@@ -257,7 +256,7 @@ namespace Meridian59 { namespace Ogre
       // create Billboard
       billboardName = billboardSetName->createBillboard(::Ogre::Vector3::ZERO);
       billboardName->setColour(ColourValue::ZERO);
-
+      }
       // attach name billboardset to object
       SceneNode->attachObject(billboardSetName);
    };
@@ -342,10 +341,9 @@ namespace Meridian59 { namespace Ogre
       if (sceneManager->hasBillboardSet(ostr_billboard))
       {
 	 billboardSetName=sceneManager->getBillboardSet(ostr_billboard);
-         billboardSetName->clear();
-         billboardSetName->detachFromParent();
-         SceneManager->destroyBillboardSet(billboardSetName);
       }
+	else
+      {
       // create BillboardSet for quest marker
       billboardSetQuestMarker = sceneManager->createBillboardSet(ostr_billboard, 1);
       billboardSetQuestMarker->setBillboardOrigin(BillboardOrigin::BBO_BOTTOM_CENTER);
@@ -359,7 +357,7 @@ namespace Meridian59 { namespace Ogre
       // create Billboard
       billboardQuestMarker = billboardSetQuestMarker->createBillboard(::Ogre::Vector3::ZERO);
       billboardQuestMarker->setColour(ColourValue::ZERO);
-
+      }
       // attach quest marker billboardset to object
       SceneNode->attachObject(billboardSetQuestMarker);
    };
