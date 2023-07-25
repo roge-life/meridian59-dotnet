@@ -111,6 +111,7 @@ namespace Meridian59 { namespace Ogre
       /*                                 CREATE SCENEMANAGER + CAMERA,                                        */
       /********************************************************************************************************/
 
+      Logger::Log(MODULENAME, LogType::Info, "init scenemanager");
       // init scenemanager
       sceneManager = (OctreeSceneManager*)root->createSceneManager(SceneType::ST_GENERIC);
       sceneManager->setCameraRelativeRendering(true);
