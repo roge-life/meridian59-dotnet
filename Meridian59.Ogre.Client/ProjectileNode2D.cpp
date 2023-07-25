@@ -24,12 +24,12 @@ namespace Meridian59 { namespace Ogre
       if (sceneManager->hasBillboardSet(ostr_billboard))
       {
 	 billboardSet=sceneManager->getBillboardSet(ostr_billboard);
-         billboardSet->clear();
-         billboardSet->detachFromParent();
-         SceneManager->destroyBillboardSet(billboardSet);
       }
+      else
+      {
       // create billboardset for 1 billboard
       billboardSet = sceneManager->createBillboardSet(ostr_billboard, 1);
+      
       billboardSet->setBillboardOrigin(BillboardOrigin::BBO_BOTTOM_CENTER);
       billboardSet->setBillboardType(BillboardType::BBT_POINT);
       billboardSet->setAutoextend(false);
@@ -42,7 +42,7 @@ namespace Meridian59 { namespace Ogre
       // create billboard to draw image on
       billboard = billboardSet->createBillboard(::Ogre::Vector3::ZERO);
       billboard->setColour(ColourValue::ZERO);
-
+      }
       // create scenenode
       SceneNode = sceneManager->getRootSceneNode()->createChildSceneNode(ostr_node);
       SceneNode->attachObject(billboardSet);
