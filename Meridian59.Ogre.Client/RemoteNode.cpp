@@ -19,10 +19,13 @@ namespace Meridian59 { namespace Ogre
          PREFIX_REMOTENODE_SCENENODE + ::Ogre::StringConverter::toString(roomObject->ID);
       Logger::Log(MODULENAME, LogType::Info, "createremotescenenode" + roomObject->ID.ToString());
       try {
-      SceneNode = SceneManager->getRootSceneNode()->createChildSceneNode(ostr_scenenodename);
+      if  (!(SceneManager->getRootSceneNode()->hasSceneNode(ostr_scenenodename)))
+       {
+      		SceneManager->getRootSceneNode()->createChildSceneNode(ostr_scenenodename);
+       }
       }
       catch(...) {
-	      Logger::Log(MODULENAME, LogType::Info, "caught exception in RemoteNode on scene " + roomObject->ID.ToString());
+	      Logger::Log(MODULENAME, LogType::Info, "handled exception in RemoteNode on scene " + roomObject->ID.ToString());
       }
 	      
       SceneNode->setFixedYawAxis(true);
