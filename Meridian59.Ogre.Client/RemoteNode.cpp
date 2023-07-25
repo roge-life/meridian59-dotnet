@@ -18,15 +18,15 @@ namespace Meridian59 { namespace Ogre
       const ::Ogre::String& ostr_scenenodename = 
          PREFIX_REMOTENODE_SCENENODE + ::Ogre::StringConverter::toString(roomObject->ID);
 
-       if  ((SceneManager->hasSceneNode(ostr_scenenodename)))
+       if  ((sceneManager->hasSceneNode(ostr_scenenodename)))
        {
        Logger::Log(MODULENAME, LogType::Info, "createremotescenenode DUPLICATE? " + roomObject->ID.ToString());	
        }
-      else
-       {
+
+
        Logger::Log(MODULENAME, LogType::Info, "createremotescenenode:" + roomObject->ID.ToString());
        SceneManager->getRootSceneNode()->createChildSceneNode(ostr_scenenodename);
-       }
+
 
 	      
       SceneNode->setFixedYawAxis(true);
