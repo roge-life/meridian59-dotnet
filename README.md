@@ -1,3 +1,4 @@
+[![Self-hosted test on Push](https://github.com/roge-life/meridian59-dotnet/actions/workflows/buildonpush.yml/badge.svg)](https://github.com/roge-life/meridian59-dotnet/actions/workflows/buildonpush.yml)
 # Meridian 59: New 3D client and developer tools
 
 # Latest News
