@@ -157,8 +157,8 @@ namespace Meridian59 { namespace Ogre
       if (!camera->isAttached()){
         cameraNodeOrbit->attachObject(camera);
       } else {
+	 Logger::Log(MODULENAME, LogType::Error, "Camera Already Attached ");
          cameraNodeOrbit->detachObject(camera);
-         Logger::Log(MODULENAME, LogType::Error, "Camera Already Attached ");
          cameraNodeOrbit->attachObject(camera);
       }
       }
