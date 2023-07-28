@@ -55,7 +55,7 @@ namespace Meridian59 { namespace Ogre
          // attach cameranode on avatarnode
 	try {	 
          Logger::Log(MODULENAME, LogType::Info, "attempting to attach cameraNode");
-		if (!SceneNode->hasSceneNode(cameraNode)) {
+		if (!SceneManager->hasSceneNode(cameraNode)) {
 	          SceneNode->addChild(cameraNode);
 		}
 		
