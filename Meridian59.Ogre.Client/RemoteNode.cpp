@@ -48,17 +48,14 @@ namespace Meridian59 { namespace Ogre
 #endif
 
       // special handling for avatar (attach camera)
-      if (RoomObject->IsAvatar)
+      if (RoomObject->IsAvatar && !SceneManager->hasCamera(AVATARCAMNODEORBIT))
       {
          ::Ogre::SceneNode* cameraNode = OgreClient::Singleton->CameraNode;
 
          // attach cameranode on avatarnode
 	try {	 
          Logger::Log(MODULENAME, LogType::Info, "attempting to attach cameraNode");
-		if (!SceneNode->hasCamera(AVATARCAMNODE)) {
-	          SceneNode->addChild(cameraNode);
-		}
-		
+	 SceneNode->addChild(cameraNode);
 	 }
 	catch (...)
 	 {
