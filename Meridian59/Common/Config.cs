@@ -490,10 +490,10 @@ namespace Meridian59.Common
                         child.Attributes[XMLATTRIB_HOST].Value : DEFAULTVAL_CONNECTIONS_HOST;
 #if !VANILLA && !OPENMERIDIAN
                     // Change old 112/200 host entry if present.
-                    if (host.Equals("meridian112.arantis.eu"))
+                    /*if (host.Equals("meridian112.arantis.eu"))
                         host = ConnectionInfo.CON112.Host;
                     else if (host.Equals("meridian200.arantis.eu"))
-                        host = ConnectionInfo.CON200.Host;
+                        host = ConnectionInfo.CON200.Host;*/
 #endif
                     ushort port = (child.Attributes[XMLATTRIB_PORT] != null && UInt16.TryParse(child.Attributes[XMLATTRIB_PORT].Value, out val_ushort)) ?
                         val_ushort : DEFAULTVAL_CONNECTIONS_PORT;
@@ -576,19 +576,20 @@ namespace Meridian59.Common
                 if (!HasConnection(ConnectionInfo.CON102.Host, ConnectionInfo.CON102.Port))
                     connections.Add(ConnectionInfo.CON102);
 #elif OPENMERIDIAN
-                if (!HasConnection(ConnectionInfo.CON103.Host, ConnectionInfo.CON103.Port))
+                /*if (!HasConnection(ConnectionInfo.CON103.Host, ConnectionInfo.CON103.Port))
                     connections.Add(ConnectionInfo.CON103);
                 if (!HasConnection(ConnectionInfo.CON104.Host, ConnectionInfo.CON104.Port))
-                    connections.Add(ConnectionInfo.CON104);
+                    connections.Add(ConnectionInfo.CON104);*/
 #else
                 if (!HasConnection(ConnectionInfo.CON105.Host, ConnectionInfo.CON105.Port))
                     connections.Add(ConnectionInfo.CON105);
-                if (!HasConnection(ConnectionInfo.CON106.Host, ConnectionInfo.CON106.Port))
+                
+                /*if (!HasConnection(ConnectionInfo.CON106.Host, ConnectionInfo.CON106.Port))
                     connections.Add(ConnectionInfo.CON106);
                 if (!HasConnection(ConnectionInfo.CON112.Host, ConnectionInfo.CON112.Port))
                     connections.Add(ConnectionInfo.CON112);
                 if (!HasConnection(ConnectionInfo.CON200.Host, ConnectionInfo.CON200.Port))
-                    connections.Add(ConnectionInfo.CON200);
+                    connections.Add(ConnectionInfo.CON200);*/
 #endif
             }
             else
@@ -602,9 +603,9 @@ namespace Meridian59.Common
                 connections.Add(ConnectionInfo.CON104);
 #else
                 connections.Add(ConnectionInfo.CON105);
-                connections.Add(ConnectionInfo.CON106);
+                /*connections.Add(ConnectionInfo.CON106);
                 connections.Add(ConnectionInfo.CON112);
-                connections.Add(ConnectionInfo.CON200);
+                connections.Add(ConnectionInfo.CON200);*/
 #endif
             }
 
