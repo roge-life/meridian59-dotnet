@@ -74,7 +74,7 @@ jobs:
     #   modify them (or add more) to build your code if your project, please refer to the EXAMPLE below for guidance.
     - uses: GuillaumeFalourd/setup-windows10-sdk-action@v1.11
       with:
-      sdk-version: 17134
+          sdk-version: 17134
     - uses: microsoft/setup-msbuild@v1.1
       with:
           vs-version: '17.0'
