@@ -81,8 +81,6 @@ jobs:
     - run: |
         dotnet add package Microsoft.NETFramework.ReferenceAssemblies.net471 --version 1.0.3
         msbuild Engine\src\Engine.sln /p:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v141 /p:TargetFrameworkVersion=v4.7.1 /p:WindowsTargetPlatformVersion=10.0.22621.0
-        msbuild Engine\src\Engine.sln /p:Configuration=Release /p:Platform=Win32 /p:PlatformToolset=v141 /p:TargetFrameworkVersion=v4.7.1 /p:WindowsTargetPlatformVersion=10.0.22621.0
-        msbuild Meridian59.sln /p:Configuration=Release /p:Platform=x86 /p:PlatformToolset=v141 /p:TargetFrameworkVersion=v4.7.1 /p:WindowsTargetPlatformVersion=10.0.22621.0
         msbuild Meridian59.sln /p:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v141 /p:TargetFrameworkVersion=v4.7.1 /p:WindowsTargetPlatformVersion=10.0.22621.0
     # - run: |
     #     echo "Run, Build Application using script"
