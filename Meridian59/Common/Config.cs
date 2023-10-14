@@ -581,11 +581,12 @@ namespace Meridian59.Common
                 if (!HasConnection(ConnectionInfo.CON104.Host, ConnectionInfo.CON104.Port))
                     connections.Add(ConnectionInfo.CON104);*/
 #else
-                if (!HasConnection(ConnectionInfo.CON105.Host, ConnectionInfo.CON105.Port))
-                    connections.Add(ConnectionInfo.CON105);
-                
                 if (!HasConnection(ConnectionInfo.CON106.Host, ConnectionInfo.CON106.Port))
                     connections.Add(ConnectionInfo.CON106);
+                
+                if (!HasConnection(ConnectionInfo.CON105.Host, ConnectionInfo.CON105.Port))
+                    connections.Add(ConnectionInfo.CON105);
+                              
                 /*if (!HasConnection(ConnectionInfo.CON112.Host, ConnectionInfo.CON112.Port))
                     connections.Add(ConnectionInfo.CON112);
                 if (!HasConnection(ConnectionInfo.CON200.Host, ConnectionInfo.CON200.Port))
@@ -602,8 +603,8 @@ namespace Meridian59.Common
                 connections.Add(ConnectionInfo.CON103);
                 connections.Add(ConnectionInfo.CON104);
 #else
-                connections.Add(ConnectionInfo.CON105);
                 connections.Add(ConnectionInfo.CON106);
+                connections.Add(ConnectionInfo.CON105);
                 /*connections.Add(ConnectionInfo.CON112);
                 connections.Add(ConnectionInfo.CON200);*/
 #endif
