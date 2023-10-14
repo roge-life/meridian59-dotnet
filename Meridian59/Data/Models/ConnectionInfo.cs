@@ -47,8 +47,8 @@ namespace Meridian59.Data.Models
         public static readonly ConnectionInfo CON103 = new ConnectionInfo("103", "meridian103.openmeridian.org",5903, "rsc0000-103.rsb", "", "", "", null);
         public static readonly ConnectionInfo CON104 = new ConnectionInfo("104", "meridian104.openmeridian.org",5904, "rsc0000-104.rsb", "", "", "", null);
 #else
-        public static readonly ConnectionInfo CON106 = new ConnectionInfo("001", "m59.wizardwestern.com",5959, "rsc0000-001.rsb", "", "", "", null);
-        public static readonly ConnectionInfo CON105 = new ConnectionInfo("900", "server900.nodewars.net",5959, "rsc0000-900.rsb", "", "", "", null);
+        public static readonly ConnectionInfo CON106 = new ConnectionInfo("Eternals MAIN", "m59.wizardwestern.com",5959, "rsc0000-001.rsb", "", "", "", null);
+        public static readonly ConnectionInfo CON105 = new ConnectionInfo("Guest 900", "server900.nodewars.net",5959, "rsc0000-900.rsb", "", "", "", null);
 #endif
         #endregion
 
